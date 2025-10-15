@@ -14,13 +14,19 @@ def latex_part_3(data):
     c1, c2, c3, c4, c5, c6, c7, c8, c9, c10 = formatted
 
     latex_code = f'''
-\\begin{{tabular}}{{|c|c|c|c|c|c|c|c|c|c|c|}}
-\\hline
-\\textbf{{Сдвиг ЧП}} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\\\
-\\hline
-\\textbf{{К-т АК}} & {c1} & {c2} & {c3} & {c4} & {c5} & {c6} & {c7} & {c8} & {c9} & {c10} \\\\
-\\hline
-\\end{{tabular}}
+#figure(
+  align(center)[#table(
+    columns: 11,
+    align: (center, center, center, center, center, center, center, center, center, center, center,),
+    table.header(
+      [#strong[Сдвиг ЧП];], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10],
+    ),
+    table.hline(),
+    [#strong[К-т АК];],
+    [{c1}], [{c2}], [{c3}], [{c4}], [{c5}], [{c6}], [{c7}], [{c8}], [{c9}], [{c10}],
+  )],
+  kind: table,
+)
 '''
     return latex_code.strip()
 
